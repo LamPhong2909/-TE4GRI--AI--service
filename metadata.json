@@ -1,0 +1,183 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TE4GRI Golden Record Schema v2.2",
+  "description": "Cấu trúc dữ liệu chuẩn hóa (Metadata Tham chiếu) cho mọi giao dịch trong hệ sinh thái TE4GRI. Đây là nguồn sự thật duy nhất, làm trung gian giao tiếp giữa Client, Backend, CV, và NLP.",
+  "type": "object",
+  "properties": {
+
+
+    "request_id": { 
+      "description": "Mã định danh duy nhất cho mỗi yêu cầu của người dùng.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "session_id": {
+      "description": "Mã định danh cho phiên làm việc của người dùng.",
+      "type": "string"
+    },
+    "timestamp_utc": {
+      "description": "Dấu thời gian (chuẩn UTC) khi yêu cầu được khởi tạo.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "client_info": {
+      "description": "Thông tin về thiết bị của người dùng cuối.",
+      "type": "object",
+      "properties": {
+        "app_version": { "type": "string" },
+        "device_model": { "type": "string" },
+        "os": { "type": "string" },
+        "network_type": { "type": "string" }
+      },
+      "required": ["app_version"]
+    },
+    "image_metadata": {
+      "description": "Metadata của hình ảnh được người dùng gửi lên.",
+      "type": "object",
+      "properties": {
+        "image_hash": { "type": "string", "description": "Mã hash (e.g., SHA256) của ảnh để kiểm tra trùng lặp." },
+        "resolution": { "type": "string" },
+        "format": { "type": "string" },
+        "capture_time_local": { "type": "string", "format": "date-time" },
+        "location": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lon": { "type": "number" }
+          }
+        }
+      }
+    },
+    "diagnosis_result": {
+      "description": "Kết quả chẩn đoán từ module Computer Vision.",
+      "type": "object",
+      "properties": {
+        "cv_model_version": { "type": "string" },
+        "inference_time_ms": { "type": "integer" },
+        "diagnoses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "disease_id": { "type": "string", "description": "Mã định danh bệnh trong Knowledge Base (e.g., 'rice_blast')." },
+              "disease_name": { "type": "string", "description": "Tên bệnh bằng tiếng Việt." },
+              "confidence_score": { "type": "number", "minimum": 0, "maximum": 1 },
+              "bounding_boxes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "x": { "type": "integer" },
+                    "y": { "type": "integer" },
+                    "width": { "type": "integer" },
+                    "height": { "type": "integer" }
+                  },
+                  "required": ["x", "y", "width", "height"]
+                }
+              }
+            },
+            "required": ["disease_id", "disease_name", "confidence_score"]
+          }
+        },
+        "estimated_severity": {
+          "description": "Mức độ nghiêm trọng ước tính (nhẹ, trung bình, nặng).",
+          "type": "string",
+          "enum": ["light", "medium", "severe", "unknown"]
+        }
+      },
+      "required": ["cv_model_version", "diagnoses"]
+    },
+    "contextual_information": {
+      "description": "Dữ liệu ngữ cảnh được làm giàu bởi các dịch vụ bên ngoài.",
+      "type": "object",
+      "properties": {
+        "user_profile": {
+          "type": "object",
+          "properties": {
+            "user_id": { "type": "string" },
+            "experience_level": { "type": "string", "enum": ["beginner", "intermediate", "expert"] },
+            "region": { "type": "string" },
+            "past_diagnoses_summary": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "environment": {
+          "type": "object",
+          "properties": {
+            "weather": {
+              "type": "object",
+              "properties": {
+                "provider": { "type": "string" },
+                "temperature_c": { "type": "number" },
+                "humidity_percent": { "type": "number" },
+                "condition": { "type": "string" },
+                "wind_speed_kmh": { "type": "number" },
+                "rainfall_mm_last_24h": { "type": "number" }
+              }
+            },
+            "soil_data": { "type": "object" }
+          }
+        },
+        "crop_info": {
+          "type": "object",
+          "properties": {
+            "crop_type": { "type": "string", "enum": ["rice", "corn"] },
+            "growth_stage": { "type": "string" },
+            "variety": { "type": "string" }
+          }
+        }
+      }
+    },
+    "interaction_log": {
+      "description": "Lịch sử tương tác giữa người dùng và chatbot trong phiên này.",
+      "type": "object",
+      "properties": {
+        "user": {
+          "type": "object",
+          "properties": {
+            "message": { "type": "string" },
+            "detected_intent": { "type": "string" },
+            "detected_entities": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "chatbot": {
+          "type": "object",
+          "properties": {
+            "response_text": { "type": "string" },
+            "response_type": { "type": "string", "enum": ["direct_answer", "clarification_question", "fallback"] },
+            "actions_suggested": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "user_feedback": {
+          "type": "object",
+          "properties": {
+            "rating": { "type": "integer", "minimum": 1, "maximum": 5 },
+            "comment": { "type": "string" },
+            "is_diagnosis_correct": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "system_notes": {
+      "description": "Ghi chú của hệ thống, dùng cho việc debug và theo dõi.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "service": { "type": "string", "description": "Tên dịch vụ ghi log (e.g., 'Backend', 'CV', 'NLP')." },
+          "message": { "type": "string" },
+          "timestamp_utc": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  },
+
+
+
+  
+  "required": [
+    "request_id",
+    "session_id",
+    "timestamp_utc",
+    "diagnosis_result"
+  ]
+}

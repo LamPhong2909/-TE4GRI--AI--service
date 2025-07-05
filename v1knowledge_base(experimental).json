@@ -1,0 +1,62 @@
+{
+  "rice_blast": {
+    "name": "Bệnh Đạo ôn",
+    "scientific_name": "Pyricularia oryzae",
+    "aliases": ["đạo ôn lá", "đạo ôn cổ bông", "cháy lá", "đạo ôn"],
+    "crop": "rice",
+    "intents": {
+      "request_description": "Bệnh đạo ôn là một trong những bệnh hại nguy hiểm nhất trên cây lúa, có thể gây thất thu năng suất nghiêm trọng nếu không phòng trừ kịp thời. Bệnh do nấm Pyricularia oryzae gây ra.",
+      "request_symptoms": "Dấu hiệu của bệnh đạo ôn rất đa dạng:\n- Trên lá: Vết bệnh ban đầu là những chấm nhỏ màu xanh xám, sau lớn dần có hình thoi, tâm màu xám trắng, viền màu nâu. Bệnh nặng làm lá bị cháy khô.\n- Trên cổ bông: Vết bệnh làm cổ bông bị héo, gây lem lép hạt, hạt lúa không vào gạo được.\n- Trên đốt thân: Vết bệnh làm đốt thân khô đen, dễ gãy.",
+      "request_treatment": "Khi phát hiện bệnh, cần xử lý ngay:\n1. **Ngưng bón phân đạm**: Dừng ngay việc bón các loại phân có chứa đạm, Ure.\n2. **Giữ khô nước ruộng**: Rút nước trong ruộng để khô 2-3 ngày nếu có thể để hạn chế nấm lây lan.\n3. **Phun thuốc đặc trị**: Sử dụng các loại thuốc có hoạt chất như Tricyclazole, Isoprothiolane, Azoxystrobin, Fenoxanil. Phun theo hướng dẫn trên bao bì, đảm bảo phun ướt đều cả hai mặt lá. Nên phun vào lúc sáng sớm hoặc chiều mát.",
+      "request_prevention": "Phòng bệnh hơn chữa bệnh:\n- Chọn giống lúa kháng bệnh.\n- Bón phân cân đối, không bón thừa đạm.\n- Gieo sạ với mật độ vừa phải, không quá dày.\n- Thăm đồng thường xuyên để phát hiện bệnh sớm, đặc biệt là khi thời tiết có mưa nhiều, trời âm u, độ ẩm cao."
+    }
+  },
+  "rice_sheath_blight": {
+    "name": "Bệnh Khô vằn",
+    "scientific_name": "Rhizoctonia solani",
+    "aliases": ["khô vằn", "ung thư trên lúa"],
+    "crop": "rice",
+    "intents": {
+      "request_description": "Bệnh khô vằn là bệnh hại phổ biến thứ hai sau đạo ôn, do nấm Rhizoctonia solani gây ra. Bệnh thường phát triển mạnh trong điều kiện nóng ẩm.",
+      "request_symptoms": "Dấu hiệu nhận biết bệnh khô vằn:\n- Vết bệnh xuất hiện ở bẹ lá gần mặt nước trước, có dạng hình bầu dục, màu xám xanh, sau đó lan rộng ra và có các vằn vện như da hổ, da trăn.\n- Khi bệnh nặng, các lá phía trên cũng bị tấn công, làm lá bị khô chết, ảnh hưởng khả năng quang hợp và làm giảm năng suất.",
+      "request_treatment": "Biện pháp xử lý khi có bệnh:\n1. **Vệ sinh đồng ruộng**: Vớt bỏ các lá bệnh nặng, tiêu hủy để giảm nguồn nấm.\n2. **Phun thuốc hóa học**: Sử dụng các loại thuốc có hoạt chất như Hexaconazole, Validamycin, Pencycuron. Chú ý phun kỹ vào phần thân và bẹ lá gần gốc lúa.",
+      "request_prevention": "Để phòng ngừa bệnh khô vằn:\n- Dọn sạch tàn dư rơm rạ từ vụ trước.\n- Gieo sạ mật độ hợp lý, tránh quá dày tạo độ ẩm cao.\n- Bón phân cân đối, tăng cường bón Kali để cây cứng cáp."
+    }
+  },
+  "rice_bacterial_leaf_blight": {
+    "name": "Bệnh Cháy bìa lá (Bạc lá)",
+    "scientific_name": "Xanthomonas oryzae",
+    "aliases": ["bạc lá", "cháy bìa lá"],
+    "crop": "rice",
+    "intents": {
+      "request_description": "Bệnh cháy bìa lá do vi khuẩn Xanthomonas oryzae gây ra, thường phát triển mạnh sau những cơn mưa bão, gió lớn làm lá lúa bị xây xát, tạo điều kiện cho vi khuẩn xâm nhập.",
+      "request_symptoms": "Triệu chứng điển hình của bệnh:\n- Vết bệnh bắt đầu từ mép lá hoặc chóp lá, lan dần vào trong thành các vệt lớn màu vàng, sau đó chuyển sang màu xám trắng.\n- Bệnh nặng có thể làm cả phiến lá bị khô cháy, cây lúa xơ xác.",
+      "request_treatment": "Xử lý bệnh cháy bìa lá:\n1. **Dừng bón đạm và phun thuốc kích thích sinh trưởng.**\n2. **Giữ mực nước ruộng vừa phải.**\n3. **Phun thuốc kháng sinh**: Sử dụng các loại thuốc có hoạt chất như Streptomycin, Oxytetracycline, Kasugamycin. Lưu ý, đây là bệnh do vi khuẩn nên thuốc trị nấm không có tác dụng.",
+      "request_prevention": "Các biện pháp phòng ngừa hiệu quả:\n- Không gieo cấy quá dày.\n- Bón phân hợp lý, đặc biệt không bón thừa đạm.\n- Tránh làm tổn thương lá lúa khi chăm sóc."
+    }
+  },
+  "corn_gray_leaf_spot": {
+    "name": "Bệnh Đốm lá xám",
+    "scientific_name": "Cercospora zeae-maydis",
+    "aliases": ["đốm lá xám ngô", "bệnh đốm lá cercospora"],
+    "crop": "corn",
+    "intents": {
+      "request_description": "Bệnh đốm lá xám là một trong những bệnh hại lá ngô phổ biến nhất, có thể làm giảm đáng kể diện tích quang hợp của lá và ảnh hưởng đến năng suất.",
+      "request_symptoms": "Triệu chứng của bệnh đốm lá xám:\n- Vết bệnh ban đầu là những chấm nhỏ, sau đó phát triển thành các đốm dài, hẹp, có hình chữ nhật, màu nâu hoặc xám, nằm song song với gân lá.\n- Các vết bệnh không vượt qua gân lá, đây là đặc điểm nhận dạng quan trọng.",
+      "request_treatment": "Phương pháp điều trị:\n1. **Luân canh cây trồng**: Không trồng ngô liên tục nhiều vụ trên cùng một mảnh đất.\n2. **Phun thuốc diệt nấm**: Sử dụng các loại thuốc có hoạt chất Mancozeb, Azoxystrobin hoặc Propiconazole khi bệnh chớm xuất hiện. Phun lặp lại sau 7-10 ngày nếu thời tiết thuận lợi cho bệnh phát triển.",
+      "request_prevention": "Để phòng bệnh đốm lá xám:\n- Chọn giống ngô có khả năng kháng bệnh.\n- Cày sâu để vùi lấp tàn dư cây bệnh từ vụ trước.\n- Tránh tưới nước lên lá vào buổi chiều tối để lá nhanh khô, hạn chế nấm phát triển."
+    }
+  },
+  "corn_rust": {
+    "name": "Bệnh Rỉ sắt",
+    "scientific_name": "Puccinia sorghi",
+    "aliases": ["rỉ sắt ngô", "bệnh gỉ sắt"],
+    "crop": "corn",
+    "intents": {
+      "request_description": "Bệnh rỉ sắt do nấm Puccinia sorghi gây ra, thường xuất hiện ở giai đoạn cây ngô phát triển mạnh. Bệnh làm giảm khả năng quang hợp và có thể gây hại nặng nếu không kiểm soát.",
+      "request_symptoms": "Dấu hiệu nhận biết bệnh rỉ sắt:\n- Trên cả hai mặt lá xuất hiện các ổ nấm nhỏ, hình bầu dục hoặc tròn, màu nâu vàng hoặc màu rỉ sét.\n- Khi sờ vào các ổ nấm, sẽ có một lớp bột màu nâu đỏ dính vào tay, đó là bào tử của nấm.",
+      "request_treatment": "Cách xử lý khi ngô bị bệnh:\n- Phun các loại thuốc trừ nấm có hoạt chất Propiconazole, Tebuconazole hoặc Mancozeb. Cần phun sớm khi tỷ lệ bệnh còn thấp (dưới 5%).",
+      "request_prevention": "Biện pháp phòng ngừa bệnh rỉ sắt:\n- Sử dụng các giống ngô kháng bệnh.\n- Vệ sinh đồng ruộng, tiêu hủy tàn dư cây trồng sau thu hoạch.\n- Bón phân cân đối, tránh bón thừa đạm."
+    }
+  }
+}
