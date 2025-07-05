@@ -35,6 +35,13 @@
       "request_prevention": "Các biện pháp phòng ngừa hiệu quả:\n- Không gieo cấy quá dày.\n- Bón phân hợp lý, đặc biệt không bón thừa đạm.\n- Tránh làm tổn thương lá lúa khi chăm sóc."
     }
   },
+
+
+
+
+
+
+  
   "corn_gray_leaf_spot": {
     "name": "Bệnh Đốm lá xám",
     "scientific_name": "Cercospora zeae-maydis",
