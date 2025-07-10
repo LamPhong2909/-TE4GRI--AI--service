@@ -14,7 +14,7 @@
   "rice_sheath_blight": {
     "name": "Bệnh Khô vằn",
     "scientific_name": "Rhizoctonia solani",
-    "aliases": ["khô vằn", "ung thư trên lúa"],
+    "aliases": ["khô vằn", "ung thư trên lúa"], 
     "crop": "rice",
     "intents": {
       "request_description": "Bệnh khô vằn là bệnh hại phổ biến thứ hai sau đạo ôn, do nấm Rhizoctonia solani gây ra. Bệnh thường phát triển mạnh trong điều kiện nóng ẩm.",

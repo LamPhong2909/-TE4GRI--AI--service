@@ -6,12 +6,18 @@
   "properties": {
 
 
-    "request_id": { 
+    "request_id":
+    
+    { 
       "description": "Mã định danh duy nhất cho mỗi yêu cầu của người dùng.",
       "type": "string",
       "format": "uuid"
     },
-    "session_id": {
+
+
+    "session_id":
+    
+    {
       "description": "Mã định danh cho phiên làm việc của người dùng.",
       "type": "string"
     },

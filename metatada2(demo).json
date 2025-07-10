@@ -1,0 +1,103 @@
+{
+    "image_metadata": {
+      "image_id": "img_001",
+      "resolution": "1920x1080",
+      "format": "JPEG",
+      "camera_model": "iPhone 12",
+      "capture_time": "2025-07-15T10:00:00Z",
+      "preprocessing_steps": ["resized", "normalized", "contrast_enhanced"],
+      "source": "user_upload",
+      "dataset_category": "rice_disease_blast_tillering"
+    },
+    "crop_information": {
+      "crop_type": "rice",
+      "variety": "IR64",
+      "growth_stage": "tillering",
+      "planting_date": "2025-06-01",
+      "field_id": "field_ABC",
+      "farm_size_ha": 2.5
+    },
+    "disease_information": {
+      "disease_detected": "disease_blast_rice",
+      "confidence_score": 0.95,
+      "bounding_boxes": [
+        {"x": 100, "y": 150, "width": 50, "height": 50, "label": "blast_spot"},
+        {"x": 200, "y": 250, "width": 60, "height": 60, "label": "blast_spot"}
+      ],
+      "severity": "light",
+      "symptoms_observed": ["small brown spots", "leaf yellowing"],
+      "disease_stage": "early",
+      "recommended_treatment": "Apply fungicide X at 0.5 L/ha"
+    },
+    "environmental_data": {
+      "timestamp": "2025-07-15T10:00:00Z",
+      "location": {
+        "lat": 10.7769,
+        "lon": 106.7009,
+        "region": "Mekong Delta"
+      },
+      "weather": {
+        "temperature_c": 28.5,
+        "humidity_percent": 85,
+        "condition": "rainy",
+        "wind_speed_kmh": 5.2,
+        "wind_direction": "NE",
+        "rainfall_mm_last_24h": 20.0
+      },
+      "soil_moisture_percent": 65,
+      "irrigation_method": "drip"
+    },
+    "user_interaction": {
+      "user_id": "user_123",
+      "session_id": "session_789",
+      "query": "What's wrong with my rice plants?",
+      "feedback": null,
+      "user_location": {"lat": 10.7769, "lon": 106.7009}
+    },
+    "chatbot_interaction": {
+      "conversation_id": "conv_456",
+      "previous_messages": [
+        {"role": "user", "content": "Hello"},
+        {"role": "bot", "content": "Hi, how can I help you?"}
+      ],
+      "intent_detected": "disease_diagnosis",
+      "entities_extracted": ["rice", "brown spots"]
+    },
+    "system_metrics": {
+      "cv_model_version": "yolo_v12_te4gri_v1.0",
+      "inference_time_ms": 3200,
+      "sahi_applied": true,
+      "pipeline_stages": [
+        {"stage": "preprocessing", "time_ms": 500},
+        {"stage": "inference", "time_ms": 2000},
+        {"stage": "postprocessing", "time_ms": 700}
+      ],
+      "errors": []
+    },
+    "data_provenance": {
+      "source": "user_upload",
+      "collection_method": "mobile_app",
+      "annotation_details": {
+        "annotator_id": "expert_001",
+        "annotation_confidence": 0.9,
+        "annotation_tool": "CVAT"
+      }
+    },
+    "external_api_data": {
+      "weather_api": {
+        "provider": "OpenWeatherMap",
+        "api_timestamp": "2025-07-15T09:55:00Z",
+        "response": {
+          "temperature": 28.5,
+          "humidity": 85,
+          "condition": "rainy"
+        }
+      }
+    },
+    "dcdm_information": {
+      "dataset_category": "rice_disease_blast_tillering",
+      "augmentation_applied": ["rotation", "brightness_adjustment"],
+      "annotation_confidence": 0.95,
+      "data_split": "train"
+    }
+  }
