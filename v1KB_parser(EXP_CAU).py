@@ -140,7 +140,7 @@ def main(kb_path='knowledge_base.json'):
     # Nạp dữ liệu
     load_kb_to_redis(redis_connection, knowledge_base)
     
-    print("\n🚀 Quá trình hoàn tất. Cơ sở tri thức đã sẵn sàng trên Redis cho TE4BOT sử dụng.")
+    print("\n🚀 Quá trình hoàn tất. Cơ sở tri thức đã sẵn sàng trên Redis(Giống với Cloudinary) cho TE4BOT sử dụng.")
 
 if __name__ == "__main__":
     main()
