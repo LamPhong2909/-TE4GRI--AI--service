@@ -1,5 +1,15 @@
 # API Gateway Module - Modular Implementation (Experimental) 07-10-2025 
 
+# This module serves as the API gateway for the DeepSeek AI services, integrating various components such as NLU, RAG, and authentication.
+# It handles requests, applies rate limiting, and provides health-check endpoints. The code is structured to allow easy extension and maintenance.
+# The implementation uses FastAPI for building the API, OpenTelemetry for tracing, and Prometheus for metrics collection.
+# The code is divided into three main files:
+# 1. `main.py` - The main application file that initializes the FastAPI app, sets up routes, and handles requests.
+# 2. `utils.py` - Contains utility functions, settings, and JWT verification logic
+# 3. `middlewares.py` - Implements middleware for rate limiting and logging.
+# The code is designed to be modular, allowing for easy integration with other services and components in the DeepSeek AI ecosystem.
+# The following code snippets represent the modular implementation of the API gateway.
+
 ## 1. `main.py`
 import logging
 from fastapi import FastAPI, HTTPException, status, Depends, Request
