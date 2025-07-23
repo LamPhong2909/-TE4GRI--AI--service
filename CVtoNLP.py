@@ -1,8 +1,32 @@
 '''
 Đây là source mẫu anh Phong tự viết, đúc kết từ các tài liệu kiến trúc, có thể không ăn nhằm và kết nối được tới TE4GRI&TE4BOT NHƯNG đáng để thử nghiệm
 '''
+ # SỬ DỤNG metadata.json để validate dữ liệu cho golden_record 
+# SỬ DỤNG knowledge_base.json để lưu trữ các thông tin bệnh lý, triệu chứng, điều trị, phòng ngừa
+# SỬ DỤNG cv_metadata.json để ánh xạ các class ID từ mô hình Computer Vision sang các bệnh lý trong knowledge base
+# SỬ DỤNG Redis để cache các kết quả ánh xạ CV-NLP
+# SỬ DỤNG FastAPI để xây dựng API Gateway tích hợp giữa Computer Vision
+# và NLP, cho phép tương tác thống nhất với các dịch vụ AI khác nhau.
+# # SỬ DỤNG Pydantic để định nghĩa các mô hình dữ liệu và validate đầu vào
+# SỬ DỤNG scikit-learn để xây dựng chỉ mục ngữ nghĩa
+# SỬ DỤNG joblib để lưu trữ mô hình TF-IDF vector
+# SỬ DỤNG httpx để gọi các dịch vụ microservice khác (CV
+# và NLP)
+# SỬ DỤNG contextlib để quản lý bộ nhớ cho các file JSON lớn
+# SỬ DỤNG mmap để đọc các file JSON lớn một cách hiệu quả
+# SỬ DỤNG numpy và pandas để xử lý dữ liệu và tính toán độ tương đồng
+# SỬ DỤNG hashlib để tạo khóa cache duy nhất cho các kết quả ánh xạ
+# SỬ DỤNG base64 để mã hóa và giải mã
+# hình ảnh từ URL hoặc base64
+# SỬ DỤNG uvicorn để chạy ứng dụng FastAPI với SSL và cấu hình worker
+# SỬ DỤNG OpenTelemetry để theo dõi và ghi nhận các hoạt động
+# SỬ DỤNG Prometheus để thu thập và giám sát các chỉ số hiệu suất của API
+# SỬ DỤNG Redis để lưu trữ các kết quả ánh xạ CV-NLP và các thông tin liên quan đến bệnh lý
+# SỬ DỤNG Pydantic để định nghĩa các mô hình dữ liệu và validate đầu vào
+# SỬ DỤNG contextlib để quản lý bộ nhớ cho các file JSON lớn
+# SỬ DỤNG mmap để đọc các file JSON lớn một cách hiệu quả
 
-
+import base64
 import mmap
 import json
 import os
@@ -56,9 +80,10 @@ class NLPContext(BaseModel):
 
 # ***************************************
 # 2. MEMORY-MAPPED JSON MANAGER (CHO DỮ LIỆU LỚN)
+# để đọc và quản lý dữ liệu từ các file JSON
 # ***************************************
 
-class MemoryMappedJSON:
+class MemoryMappedJSON: 
     def __init__(self, file_path: str):
         self.file_path = file_path
         self._file = None

@@ -1,6 +1,34 @@
 import json
 import redis
 import sys
+# --- TE4GRI Knowledge Base Parser and Loader ---
+# Mục đích: Đọc file knowledge_base.json, xác thực cấu trúc,
+# nạp dữ liệu vào Redis, và xây dựng bản đồ alias cho tra cứu nhanh.
+# Phiên bản: 1.0
+# Tác giả: TE4GRI Team
+# Ngày tạo: 2023-10-01
+# Cập nhật: 2023-10-01
+# --- Thư viện cần thiết ---
+# pip install redis 
+# pip install json
+# --- Lưu ý ---
+# - Đảm bảo Redis server đang chạy trên localhost:6379
+# - File knowledge_base.json phải có cấu trúc hợp lệ theo định dạng đã quy định
+# - Các trường bắt buộc bao gồm: name, aliases, crop, intents
+# - intents phải chứa các trường: request_description, request_symptoms, request_treatment,
+#   request_prevention
+# - Các tên bệnh và alias sẽ được chuyển về chữ thường để tìm kiếm không phân biệt hoa-thường
+# - Các alias trùng lặp sẽ được cảnh báo nhưng vẫn được lưu trữ
+# - Kết quả sẽ được lưu trữ trong Redis với các key định dạng: kb:disease:{disease_id}
+#   và bản đồ alias sẽ được lưu trong một Redis Hash
+
+
+#Cung cấp các chức năng để quản lý Knowledge Base cho TE4GRI
+# bao gồm xác thực cấu trúc, nạp dữ liệu vào Redis, và xây dựng
+# bản đồ alias cho tra cứu nhanh.
+#Cung cấp cache layer cho các dịch vụ khác trong hệ sinh thái TE4GRI,
+# giúp tăng tốc độ truy xuất thông tin và giảm tải cho hệ thống.
+
 
 # --- Cấu hình Redis ---
 # Trong môi trường sản xuất, các thông tin này nên được đọc từ biến môi trường.
