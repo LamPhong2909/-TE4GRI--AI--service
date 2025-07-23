@@ -1,0 +1,610 @@
+{
+  "_comment": "Cơ sở tri thức (Knowledge Base) phiên bản 2.0 cho TE4BOT. Cấu trúc được tối ưu hóa cho việc truy vấn dựa trên ý định (intent-based) và cung cấp thông tin đa chiều, chuyên sâu về các bệnh hại trên cây lúa.",
+  "metadata": {
+    "version": "2.0.0",
+    "last_updated_utc": "2025-07-23T16:30:00Z",
+    "author": "TE4GRI NLP/Chatbot Division",
+    "description": "Tích hợp toàn diện kiến thức từ 'SIÊU TÀI LIỆU(3)' và tuân thủ kiến trúc của 'HỒ SƠ NLP-CHATBOT'."
+  },
+  "diseases": {
+    "rice_blast": {
+      "name": "Bệnh Đạo ôn",
+      "scientific_name": "Magnaporthe oryzae (B.C. Couch)",
+      "anamorph": "Pyricularia oryzae",
+      "type": "Nấm",
+      "aliases": ["đạo ôn lá", "đạo ôn cổ bông", "thối cổ bông", "cháy lá", "đạo ôn", "benh dao on", "cổ gié"],
+      "summary": "Là bệnh hại nguy hiểm và có sức tàn phá bậc nhất trên cây lúa toàn cầu, do nấm Magnaporthe oryzae gây ra. Bệnh có thể gây hại trên mọi bộ phận của cây ở tất cả các giai đoạn, gây thất thoát năng suất nghiêm trọng từ 70-80% khi dịch bùng phát.",
+      "intents": {
+        "request_symptoms": {
+          "title": "Triệu chứng & Dấu hiệu nhận biết",
+          "overview": "Triệu chứng của bệnh đạo ôn rất đa dạng tùy thuộc vào bộ phận bị tấn công và giai đoạn phát triển của bệnh.",
+          "by_location": [
+            {
+              "location": "Trên lá (Đạo ôn lá)",
+              "stages": [
+                {
+                  "stage_name": "Khởi phát",
+                  "description": "Vết bệnh ban đầu chỉ là những chấm nhỏ li ti, màu xanh xám, giống như giọt dầu."
+                },
+                {
+                  "stage_name": "Phát triển",
+                  "description": "Sau 24-48 giờ, vết bệnh lớn dần thành hình thoi điển hình (dài 1-2 cm, rộng 0.3-0.5 cm), có tâm màu xám tro hoặc xám trắng, viền xung quanh màu nâu đậm, và thường có quầng vàng ở ngoài cùng."
+                },
+                {
+                  "stage_name": "Giai đoạn nặng",
+                  "description": "Nhiều vết bệnh liên kết lại với nhau thành từng mảng lớn, gây ra hiện tượng 'cháy lá', làm lá khô và chết hoàn toàn, ảnh hưởng nghiêm trọng đến khả năng quang hợp."
+                }
+              ]
+            },
+            {
+              "location": "Trên cổ bông (Thối cổ bông)",
+              "description": "Đây là dạng gây hại nguy hiểm nhất. Vết bệnh ban đầu là một chấm nhỏ màu nâu đen ở cổ bông. Về sau, vết bệnh lan rộng làm cho cổ bông bị héo, teo tóp và khô. Toàn bộ bông lúa sẽ bị lép lửng hoặc lép hoàn toàn, hạt không vào gạo được. Cổ bông rất dễ gãy."
+            },
+            {
+              "location": "Trên đốt thân",
+              "description": "Nấm tấn công vào các đốt thân, tạo ra các vết bệnh màu nâu đen, bao quanh đốt thân. Điều này làm cho đốt thân bị khô, teo lại và dễ gãy, gây hiện tượng lúa đổ ngã."
+            },
+            {
+              "location": "Trên hạt",
+              "description": "Vết bệnh có hình tròn hoặc bầu dục, màu nâu đen trên vỏ trấu. Nấm có thể xâm nhập vào bên trong, gây ra hiện tượng 'lem lép hạt', làm giảm chất lượng gạo và tỷ lệ nảy mầm của hạt giống."
+            }
+          ]
+        },
+        "request_disease_cycle": {
+          "title": "Chu trình Bệnh & Điều kiện Phát triển",
+          "source": "Nguồn bệnh chủ yếu tồn tại dưới dạng sợi nấm và bào tử trên tàn dư cây bệnh (rơm rạ), hạt giống bị nhiễm, và các loại cỏ dại thuộc họ hòa thảo (cỏ lồng vực, cỏ đuôi phụng).",
+          "infection_process": "Bào tử (conidia) phát tán trong không khí nhờ gió và mưa. Khi gặp điều kiện ẩm ướt (giọt sương, màng nước), bào tử bám vào bề mặt cây và nảy mầm, hình thành một cấu trúc chuyên biệt gọi là 'bào tử áp suất' (appressorium). Cấu trúc này tạo ra một áp suất cơ học cực lớn (lên tới 8 MPa) để chọc thủng lớp biểu bì của cây, sau đó sợi nấm sẽ phát triển bên trong mô cây.",
+          "favorable_conditions": {
+            "weather": {
+              "title": "Yếu tố thời tiết",
+              "temperature_c": "Mát mẻ, tối ưu từ 25-28°C.",
+              "humidity_percent": "Độ ẩm không khí rất cao, trên 90%.",
+              "other": "Trời nhiều mây, âm u, ít nắng, có mưa phùn hoặc sương mù kéo dài là điều kiện lý tưởng cho bệnh bùng phát thành dịch."
+            },
+            "cultivation": {
+              "title": "Yếu tố canh tác",
+              "fertilizer": "Bón thừa phân đạm (N) làm cho cây lúa có vách tế bào mỏng, mô lá mềm yếu, tạo điều kiện cho nấm dễ dàng xâm nhập.",
+              "density": "Gieo sạ quá dày làm ruộng lúa rậm rạp, không thông thoáng, tạo ra một 'tiểu khí hậu' ẩm ướt cục bộ.",
+              "water_management": "Ruộng trũng, khó thoát nước, giữ ẩm lâu."
+            },
+            "climate_change": {
+              "title": "Tác động của Biến đổi Khí hậu",
+              "co2_effect": "Các nghiên cứu đã chứng minh rằng nồng độ khí CO2 trong khí quyển tăng cao có thể làm tăng mức độ nghiêm trọng của bệnh đạo ôn."
+            }
+          }
+        },
+        "request_management_strategy": {
+          "title": "Chiến lược Quản lý Tổng hợp (IPM)",
+          "overview": "Để quản lý bệnh đạo ôn hiệu quả và bền vững, cần áp dụng đồng bộ nhiều biện pháp, không chỉ dựa vào thuốc hóa học.",
+          "sections": [
+            {
+              "strategy": "Sử dụng giống kháng",
+              "details": "Đây là biện pháp nền tảng, kinh tế và thân thiện với môi trường nhất. Nên ưu tiên các giống được chứng nhận kháng đạo ôn, đặc biệt là các giống mang nhiều gen kháng (pyramided genes) hoặc có khả năng kháng ngang (kháng định lượng) để kéo dài tuổi thọ của tính kháng."
+            },
+            {
+              "strategy": "Biện pháp canh tác",
+              "points": [
+                "Xử lý hạt giống: Ngâm hạt trong nước nóng 54°C trong 10 phút hoặc sử dụng các loại thuốc xử lý hạt giống chuyên dụng.",
+                "Vệ sinh đồng ruộng: Cày vùi rơm rạ và tàn dư vụ trước thật kỹ để tiêu diệt nguồn nấm bệnh. Dọn sạch cỏ dại xung quanh bờ.",
+                "Mật độ gieo sạ: Gieo sạ với mật độ hợp lý theo khuyến cáo của địa phương để ruộng lúa thông thoáng.",
+                "Quản lý phân bón: Bón phân cân đối N-P-K. Tuyệt đối không bón thừa đạm, đặc biệt là giai đoạn cuối đẻ nhánh và làm đòng. Tăng cường bón phân Kali (K) và Silic (Si) để giúp vách tế bào cứng cáp, tăng khả năng chống chịu của cây."
+              ]
+            },
+            {
+              "strategy": "Kiểm soát sinh học",
+              "recommendation": "Là giải pháp an toàn, phù hợp cho nông nghiệp hữu cơ hoặc khi áp lực bệnh chưa cao.",
+              "agents": [
+                {
+                  "name": "Vi sinh vật đối kháng",
+                  "examples": "Sử dụng các sản phẩm chứa nấm *Trichoderma spp.*, *Chaetomium spp.*, hoặc vi khuẩn *Pseudomonas fluorescens*, *Bacillus subtilis*. Các vi sinh vật này cạnh tranh dinh dưỡng hoặc tiết ra các chất kháng sinh ức chế nấm gây bệnh."
+                },
+                {
+                  "name": "Chiết xuất thực vật",
+                  "examples": "Các sản phẩm có nguồn gốc từ tỏi (chứa allicin) hoặc cây neem (chứa Azadirachtin) cũng cho thấy khả năng ức chế sự phát triển của nấm đạo ôn."
+                }
+              ]
+            },
+            {
+              "strategy": "Kiểm soát hóa học",
+              "recommendation": "Chỉ can thiệp khi bệnh có nguy cơ bùng phát và vượt ngưỡng kinh tế. Phải tuân thủ nghiêm ngặt nguyên tắc '4 đúng' (đúng thuốc, đúng lúc, đúng liều lượng, đúng cách) và luân phiên các hoạt chất có cơ chế tác động khác nhau để quản lý tính kháng thuốc.",
+              "active_ingredients": [
+                {
+                  "name": "Tricyclazole",
+                  "frac_code": "16.1",
+                  "type": "Thuốc nội hấp, lưu dẫn mạnh, ức chế sinh tổng hợp melanin của nấm.",
+                  "effectiveness": "Rất hiệu quả trong việc phòng và trị cả đạo ôn lá và đạo ôn cổ bông."
+                },
+                {
+                  "name": "Isoprothiolane",
+                  "frac_code": "16.2",
+                  "type": "Thuốc nội hấp, ức chế sự xâm nhập của nấm.",
+                  "effectiveness": "Ngoài tác dụng trị bệnh, còn giúp cây lúa cứng cáp, đứng lá."
+                },
+                {
+                  "name": "Azoxystrobin",
+                  "frac_code": "11",
+                  "type": "Thuốc phổ rộng, ức chế quá trình hô hấp của tế bào nấm.",
+                  "effectiveness": "Có tác dụng phòng bệnh tốt, giúp lá xanh bền."
+                },
+                {
+                  "name": "Difenoconazole",
+                  "frac_code": "3",
+                  "type": "Thuốc nội hấp, ức chế sinh tổng hợp ergosterol, một thành phần cấu tạo màng tế bào nấm.",
+                  "effectiveness": "Phổ tác động rộng, hiệu quả với nhiều loại nấm."
+                }
+              ]
+            }
+          ]
+        },
+        "request_molecular_basis": {
+          "title": "Cơ sở Phân tử & Di truyền",
+          "pathogen_genetics": "Điểm nổi bật của *M. oryzae* là tính siêu biến đổi (hypervariability), đặc biệt ở các vùng đầu mút nhiễm sắc thể (telomere). Điều này cho phép nấm nhanh chóng tiến hóa và tạo ra các nòi mới, vượt qua các gen kháng (R-genes) của cây lúa.",
+          "host_pathogen_interaction": "Nấm sử dụng các protein độc lực (effectors) để vô hiệu hóa hệ thống miễn dịch của cây. Ngược lại, cây lúa sử dụng các R-genes để nhận diện các effector này và kích hoạt phản ứng phòng vệ. Đây là một 'cuộc chạy đua vũ trang' di truyền không ngừng.",
+          "resistance_breeding": "Việc xác định hơn 333 Vị trí Gen Số lượng (QTLs) liên quan đến tính kháng đạo ôn đã mở ra cơ hội lớn cho việc chọn tạo các giống lúa có khả năng kháng bệnh bền vững thông qua các phương pháp lai tạo hiện đại."
+        },
+        "request_differential_diagnosis": {
+          "title": "Chẩn đoán phân biệt",
+          "comparisons": [
+            {
+              "disease_name": "Bệnh Đốm Nâu",
+              "distinguishing_feature": "Vết bệnh đạo ôn có hình thoi đặc trưng, trong khi vết bệnh đốm nâu có hình bầu dục hoặc gần tròn, viền ngoài thường có màu nâu đỏ đậm và không có tâm xám rõ rệt như đạo ôn."
+            }
+          ]
+        }
+      }
+    },
+    "sheath_blight": {
+      "name": "Bệnh Khô vằn",
+      "scientific_name": "Rhizoctonia solani Kühn",
+      "teleomorph": "Thanatephorus cucumeris",
+      "type": "Nấm",
+      "aliases": ["khô vằn", "benh kho van", "đốm vằn"],
+      "summary": "Là bệnh hại quan trọng thứ hai sau đạo ôn, do nấm Rhizoctonia solani gây ra. Bệnh chủ yếu tấn công ở bẹ lá và phiến lá gần mặt nước, phát triển mạnh trong điều kiện nóng ẩm, ruộng lúa rậm rạp, gây ảnh hưởng lớn đến năng suất và chất lượng hạt.",
+      "intents": {
+        "request_symptoms": {
+          "title": "Triệu chứng & Dấu hiệu nhận biết",
+          "overview": "Bệnh khô vằn thường khởi phát từ các bẹ lá sát mặt nước rồi lan dần lên các lá phía trên.",
+          "by_location": [
+            {
+              "location": "Trên bẹ lá",
+              "description": "Vết bệnh ban đầu là những đốm hình bầu dục, màu xanh xám, ướt sũng. Sau đó, vết bệnh lan rộng ra thành các mảng lớn có hình dạng không đều, có các vằn như da hổ. Tâm vết bệnh có màu xám trắng hoặc xám tro, viền ngoài màu nâu đậm. Trên các vết bệnh cũ, có thể thấy các hạch nấm nhỏ, tròn, màu nâu."
+            },
+            {
+              "location": "Trên phiến lá",
+              "description": "Khi bệnh nặng và điều kiện thuận lợi, nấm bệnh sẽ lan từ bẹ lá lên phiến lá, gây ra các vết bệnh tương tự. Nhiều vết bệnh có thể liên kết với nhau làm cho cả lá bị khô cháy."
+            },
+            {
+              "location": "Dấu hiệu khác",
+              "description": "Trong điều kiện ẩm độ cao, có thể quan sát thấy các sợi nấm màu trắng bò lan trên bề mặt vết bệnh, kết nối các vết bệnh lại với nhau."
+            }
+          ]
+        },
+        "request_disease_cycle": {
+          "title": "Chu trình Bệnh & Điều kiện Phát triển",
+          "source": "Nguồn bệnh chính là hạch nấm (sclerotia) và sợi nấm tồn tại trong đất, trên tàn dư thực vật (gốc rạ) từ vụ trước. Hạch nấm có thể sống sót trong điều kiện khô hạn và ngập úng trong thời gian dài.",
+          "infection_process": "Khi ruộng được làm đất và ngập nước, các hạch nấm sẽ nổi lên mặt nước, trôi dạt và bám vào bẹ lá lúa. Khi gặp điều kiện thuận lợi, hạch nấm nảy mầm thành sợi nấm và xâm nhập trực tiếp vào mô cây. Nấm hình thành các cấu trúc gọi là 'đệm nấm' (infection cushions) để tăng cường khả năng xâm nhập.",
+          "favorable_conditions": {
+            "weather": {
+              "title": "Yếu tố thời tiết",
+              "temperature_c": "Nóng ẩm, nhiệt độ tối ưu từ 28-32°C.",
+              "humidity_percent": "Độ ẩm không khí cao, bão hòa."
+            },
+            "cultivation": {
+              "title": "Yếu tố canh tác",
+              "fertilizer": "Bón thừa đạm làm cây lúa phát triển thân lá um tùm, lá mềm, tạo điều kiện lý tưởng cho bệnh phát triển.",
+              "density": "Gieo sạ quá dày làm ruộng lúa rậm rạp, ẩm độ cao, thiếu ánh sáng."
+            }
+          }
+        },
+        "request_management_strategy": {
+          "title": "Chiến lược Quản lý Tổng hợp (IPM)",
+          "overview": "Việc quản lý bệnh khô vằn gặp nhiều khó khăn do nấm tồn tại lâu trong đất và chưa có giống kháng hoàn toàn. Do đó, cần kết hợp chặt chẽ nhiều biện pháp.",
+          "sections": [
+            {
+              "strategy": "Sử dụng giống kháng",
+              "details": "Hiện chưa có giống kháng hoàn toàn, nhưng có các giống có khả năng kháng một phần (kháng ngang) hoặc ít nhiễm bệnh hơn. Việc sử dụng các giống này giúp giảm áp lực bệnh. Các giống như Tetep, Jasmine 85, Teqing là nguồn gen kháng quý giá."
+            },
+            {
+              "strategy": "Biện pháp canh tác",
+              "points": [
+                "Làm đất kỹ: Cày lật gốc rạ sâu và cho ruộng ngập nước một thời gian để tiêu diệt hạch nấm.",
+                "Mật độ hợp lý: Tránh gieo sạ quá dày.",
+                "Bón phân cân đối: Đặc biệt quan trọng là không bón thừa đạm. Tăng cường bón Kali để cây cứng cáp.",
+                "Quản lý nước: Giữ mực nước ruộng hợp lý, có thể rút nước phơi ruộng giữa vụ để hạn chế bệnh lây lan."
+              ]
+            },
+            {
+              "strategy": "Kiểm soát sinh học",
+              "recommendation": "Các tác nhân sinh học có hiệu quả cao trong việc đối kháng và ức chế nấm R. solani trong đất.",
+              "agents": [
+                {
+                  "name": "Nấm Trichoderma",
+                  "examples": "Sử dụng các sản phẩm chứa nấm *Trichoderma harzianum*, *Trichoderma virens* trộn với phân hữu cơ bón lót. Trichoderma sẽ ký sinh và tiêu diệt hạch nấm trong đất."
+                },
+                {
+                  "name": "Vi khuẩn đối kháng",
+                  "examples": "Các sản phẩm chứa vi khuẩn *Pseudomonas fluorescens* hoặc *Bacillus subtilis* cũng có khả năng ức chế sự phát triển của nấm gây bệnh."
+                }
+              ]
+            },
+            {
+              "strategy": "Kiểm soát hóa học",
+              "recommendation": "Phun thuốc khi bệnh chớm xuất hiện ở các lá dưới. Hướng vòi phun vào gốc và thân lúa, nơi bệnh thường phát sinh.",
+              "active_ingredients": [
+                {
+                  "name": "Validamycin",
+                  "type": "Thuốc kháng sinh, có tác dụng kìm hãm sự phát triển của sợi nấm.",
+                  "effectiveness": "Hiệu quả cao và ít ảnh hưởng đến môi trường."
+                },
+                {
+                  "name": "Hexaconazole / Propiconazole",
+                  "type": "Thuốc nội hấp, ức chế sinh tổng hợp ergosterol.",
+                  "effectiveness": "Phổ rộng, có tác dụng phòng và trị bệnh."
+                },
+                {
+                  "name": "Pencycuron",
+                  "type": "Thuốc tiếp xúc, đặc trị nấm Rhizoctonia.",
+                  "effectiveness": "Hiệu quả cao trong việc ngăn chặn sự lây lan của bệnh."
+                }
+              ]
+            }
+          ]
+        },
+        "request_molecular_basis": {
+          "title": "Cơ sở Phân tử & Di truyền",
+          "pathogen_genetics": "Nấm *R. solani* là một nấm hoại sinh (necrotroph), nó tiết ra các enzyme và độc tố để giết chết tế bào cây chủ trước rồi mới hấp thụ dinh dưỡng. Ba protein effector tiềm năng (AG1IA_09161, AG1IA_05310, AG1IA_07795) đã được xác định có vai trò trong việc gây chết tế bào.",
+          "host_pathogen_interaction": "Khả năng kháng bệnh khô vằn ở lúa là một tính trạng định lượng phức tạp, được điều khiển bởi nhiều gen (QTLs). Cây lúa phản ứng lại sự tấn công bằng cách kích hoạt con đường tín hiệu của Salicylic Acid (SA) và củng cố vách tế bào thứ cấp (SCW) bằng cách hóa gỗ (lignification) để tạo rào cản vật lý.",
+          "resistance_breeding": "Hơn 70 QTLs đã được xác định. Chiến lược 'tổ hợp gen' (gene pyramiding), tức là đưa nhiều QTLs kháng vào cùng một giống, đang là hướng đi hứa hẹn nhất để tạo ra các giống lúa có khả năng chống chịu tốt hơn."
+        },
+        "request_differential_diagnosis": {
+          "title": "Chẩn đoán phân biệt",
+          "comparisons": [
+            {
+              "disease_name": "Bệnh Cháy bìa lá do vi khuẩn",
+              "distinguishing_feature": "Vết bệnh khô vằn có dạng vằn vện, tâm xám, trong khi vết bệnh cháy bìa lá bắt đầu từ mép lá, có rìa gợn sóng và thường có giọt dịch vi khuẩn vào buổi sáng."
+            }
+          ]
+        }
+      }
+    },
+    "bacterial_leaf_blight": {
+      "name": "Bệnh Cháy bìa lá",
+      "scientific_name": "Xanthomonas oryzae pv. oryzae (Xoo)",
+      "type": "Vi khuẩn",
+      "aliases": ["bạc lá", "cháy bìa lá", "kresek", "benh bac la"],
+      "summary": "Là một trong những bệnh do vi khuẩn nguy hiểm nhất trên lúa, do Xanthomonas oryzae pv. oryzae gây ra. Bệnh có thể làm giảm năng suất tới 50%, thậm chí gây chết toàn bộ cây ở dạng 'kresek', đặc biệt nguy hiểm trong điều kiện mưa bão.",
+      "intents": {
+        "request_symptoms": {
+          "title": "Triệu chứng & Dấu hiệu nhận biết",
+          "overview": "Bệnh có hai dạng biểu hiện chính: dạng cháy bìa lá ở cây lớn và dạng héo vàng (kresek) ở giai đoạn mạ, cây con.",
+          "by_location": [
+            {
+              "location": "Dạng cháy bìa lá",
+              "description": "Vết bệnh thường bắt đầu từ mép lá hoặc chóp lá, lan dần vào trong thành các vệt lớn màu vàng đến trắng xám. Ranh giới giữa phần bệnh và phần khỏe của lá có dạng gợn sóng rất đặc trưng. Vào buổi sáng sớm hoặc khi trời ẩm, trên bề mặt vết bệnh thường xuất hiện các giọt dịch vi khuẩn màu trắng đục, khi khô đi sẽ tạo thành các hạt nhỏ, tròn, màu vàng hổ phách."
+            },
+            {
+              "location": "Dạng Kresek (héo vàng)",
+              "description": "Đây là dạng gây hại nghiêm trọng nhất, thường xảy ra ở giai đoạn mạ đến cuối đẻ nhánh. Vi khuẩn xâm nhập và làm tắc nghẽn mạch dẫn, khiến cho toàn bộ lá non hoặc cả cây bị héo đột ngột, lá chuyển sang màu xanh tái, vàng úa rồi chết khô."
+            }
+          ]
+        },
+        "request_disease_cycle": {
+          "title": "Chu trình Bệnh & Điều kiện Phát triển",
+          "source": "Vi khuẩn tồn tại trong hạt giống, tàn dư cây bệnh và trên các ký chủ phụ như cỏ lồng vực. Đây là nguồn lây nhiễm ban đầu cho vụ sau.",
+          "infection_process": "Vi khuẩn xâm nhập vào cây qua các lỗ tự nhiên như thủy khổng (hydathodes) ở mép lá hoặc qua các vết thương cơ giới (do gió, mưa, côn trùng, hoặc tác động canh tác). Sau khi xâm nhập, chúng nhân lên với số lượng lớn trong mạch gỗ (xylem), gây tắc nghẽn dòng vận chuyển nước và dinh dưỡng.",
+          "favorable_conditions": {
+            "weather": {
+              "title": "Yếu tố thời tiết",
+              "temperature_c": "Nóng ẩm, nhiệt độ tối ưu 28-30°C.",
+              "other": "Mưa bão, gió lớn vừa tạo ra nhiều vết thương cho vi khuẩn xâm nhập, vừa giúp phát tán mầm bệnh đi xa."
+            },
+            "cultivation": {
+              "title": "Yếu tố canh tác",
+              "fertilizer": "Bón thừa đạm làm cây sinh trưởng mạnh, lá mỏng, dễ bị tổn thương.",
+              "water_management": "Ruộng ngập nước quá sâu, đặc biệt là khi bón đạm, tạo điều kiện cho vi khuẩn phát triển."
+            }
+          }
+        },
+        "request_management_strategy": {
+          "title": "Chiến lược Quản lý Tổng hợp (IPM)",
+          "overview": "Quản lý bệnh cháy bìa lá chủ yếu dựa vào các biện pháp phòng ngừa và sử dụng giống kháng vì thuốc hóa học thường có hiệu quả không cao.",
+          "sections": [
+            {
+              "strategy": "Sử dụng giống kháng",
+              "details": "Là biện pháp hiệu quả và bền vững nhất. Nhiều gen kháng (ví dụ: Xa4, xa5, xa13, Xa21) đã được xác định và đưa vào các giống lúa thương mại. Việc tổ hợp nhiều gen kháng khác nhau vào một giống sẽ tạo ra khả năng kháng phổ rộng và lâu dài hơn."
+            },
+            {
+              "strategy": "Biện pháp canh tác",
+              "points": [
+                "Sử dụng hạt giống sạch bệnh, không lấy giống từ những ruộng đã bị nhiễm bệnh nặng.",
+                "Quản lý nước: Giữ mực nước ruộng hợp lý. Khi bệnh xuất hiện, có thể rút cạn nước và để khô ruộng trong 2-3 ngày để hạn chế sự lây lan.",
+                "Bón phân cân đối: Không bón thừa đạm. Tăng cường bón Kali để tăng tính chống chịu của cây.",
+                "Vệ sinh đồng ruộng: Thu dọn tàn dư cây bệnh và cỏ dại."
+              ]
+            },
+            {
+              "strategy": "Kiểm soát hóa học",
+              "recommendation": "Hiệu quả của thuốc hóa học thường hạn chế và chỉ có tác dụng phòng ngừa hoặc kìm hãm khi bệnh mới xuất hiện. Việc phun thuốc khi bệnh đã nặng thường không mang lại kết quả.",
+              "active_ingredients": [
+                {
+                  "name": "Kháng sinh (Streptomycin, Kasugamycin)",
+                  "type": "Thuốc có nguồn gốc sinh học, kìm hãm sự phát triển của vi khuẩn.",
+                  "effectiveness": "Hiệu quả không cao và có nguy cơ gây kháng thuốc rất lớn."
+                },
+                {
+                  "name": "Hợp chất gốc đồng (Copper Hydroxide, Copper Oxychloride)",
+                  "type": "Thuốc tiếp xúc, có tác dụng diệt khuẩn.",
+                  "effectiveness": "Có thể gây cháy lá lúa nếu phun vào lúc trời nắng gắt hoặc nồng độ cao."
+                },
+                {
+                  "name": "Các hợp chất mới",
+                  "type": "Công nghệ nano (hạt nano bạc, đồng) và các hợp chất hữu cơ mới đang được nghiên cứu và cho thấy nhiều hứa hẹn."
+                }
+              ]
+            },
+            {
+              "strategy": "Kiểm soát sinh học",
+              "recommendation": "Các vi sinh vật đối kháng có thể giúp giảm áp lực bệnh một cách an toàn.",
+              "agents": [
+                {
+                  "name": "Vi khuẩn đối kháng",
+                  "examples": "Các chủng *Pseudomonas fluorescens* và *Bacillus spp.* (*B. pumilus*, *B. subtilis*) có khả năng cạnh tranh và sản xuất các chất ức chế vi khuẩn Xoo."
+                }
+              ]
+            }
+          ]
+        },
+        "request_molecular_basis": {
+          "title": "Cơ sở Phân tử & Di truyền",
+          "pathogen_genetics": "Vũ khí chính của vi khuẩn Xoo là 'Hệ thống Tiết Loại III' (T3SS), hoạt động như một ống tiêm phân tử để bơm các protein độc lực (effectors) vào tế bào lúa.",
+          "host_pathogen_interaction": "Nhóm effector quan trọng nhất là 'TAL effectors'. Chúng có khả năng 'hack' vào hệ thống di truyền của cây lúa, kích hoạt các gen vận chuyển đường (SWEET genes) của cây, buộc cây phải 'bơm' dinh dưỡng ra ngoài để nuôi vi khuẩn. Ngược lại, cây lúa có các gen kháng (R-genes) như Xa10, Xa23, Xa27 để nhận diện các TAL effectors này và kích hoạt phản ứng phòng vệ.",
+          "resistance_breeding": "Hơn 40 gen kháng BLB đã được phát hiện, nhiều trong số đó có nguồn gốc từ các loài lúa hoang dại, là nguồn vật liệu di truyền vô giá cho các chương trình chọn tạo giống."
+        }
+      }
+    },
+    "brown_spot": {
+      "name": "Bệnh Đốm Nâu",
+      "scientific_name": "Bipolaris oryzae",
+      "teleomorph": "Cochliobolus miyabeanus",
+      "type": "Nấm",
+      "aliases": ["đốm nâu", "benh dom nau", "tiêm lửa"],
+      "summary": "Là bệnh hại nghiêm trọng do nấm Bipolaris oryzae gây ra, đặc biệt trên những chân đất xấu, thiếu dinh dưỡng. Bệnh gây hại trên lá và hạt, ảnh hưởng lớn đến năng suất và chất lượng. Đây chính là tác nhân đã gây ra Nạn đói lớn ở Bengal năm 1943.",
+      "intents": {
+        "request_symptoms": {
+          "title": "Triệu chứng & Dấu hiệu nhận biết",
+          "by_location": [
+            {
+              "location": "Trên lá",
+              "description": "Vết bệnh điển hình có hình bầu dục hoặc gần tròn, phân bố đều trên mặt lá. Vết bệnh có tâm màu xám tro hoặc nâu nhạt, viền ngoài có màu nâu đỏ đậm rất đặc trưng. Kích thước vết bệnh có thể thay đổi tùy thuộc vào điều kiện và giống lúa."
+            },
+            {
+              "location": "Trên hạt",
+              "description": "Nấm tấn công hạt, gây ra các đốm đen trên vỏ trấu, làm hạt bị đổi màu, gọi là hiện tượng 'lem lép hạt'. Hạt bị nhiễm bệnh nặng sẽ bị lép, giảm trọng lượng, giảm chất lượng gạo và tỷ lệ nảy mầm."
+            }
+          ]
+        },
+        "request_disease_cycle": {
+          "title": "Chu trình Bệnh & Điều kiện Phát triển",
+          "source": "Nấm tồn tại chủ yếu trên hạt giống (có thể sống hơn 4 năm), tàn dư cây bệnh và cỏ dại.",
+          "infection_process": "Từ hạt giống hoặc tàn dư, nấm phát tán bào tử theo gió và mưa để lây nhiễm cho cây lúa.",
+          "favorable_conditions": {
+            "weather": {
+              "title": "Yếu tố thời tiết",
+              "temperature_c": "Nhiệt độ tương đối rộng, từ 20-30°C.",
+              "humidity_percent": "Độ ẩm không khí cao."
+            },
+            "cultivation": {
+              "title": "Yếu tố canh tác (Quan trọng nhất)",
+              "soil_condition": "Bệnh liên quan mật thiết đến 'sức khỏe' của đất. Đất nghèo dinh dưỡng, thiếu cân đối các chất đa, trung, vi lượng (đặc biệt là thiếu Đạm, Kali, Silic, Mangan), đất phèn, đất bị ngộ độc hữu cơ là điều kiện lý tưởng cho bệnh phát sinh và gây hại nặng."
+            }
+          }
+        },
+        "request_management_strategy": {
+          "title": "Chiến lược Quản lý Tổng hợp (IPM)",
+          "overview": "Quản lý bệnh đốm nâu phải lấy việc cải thiện sức khỏe đất và cây trồng làm nền tảng.",
+          "sections": [
+            {
+              "strategy": "Cải thiện độ phì của đất (Biện pháp quan trọng nhất)",
+              "points": [
+                "Bón phân cân đối và hợp lý. Chú trọng bón phân hữu cơ, phân chuồng để cải tạo đất.",
+                "Bổ sung các chất dinh dưỡng còn thiếu, đặc biệt là Kali và Silic, để giúp cây trồng khỏe mạnh và tăng tính chống chịu.",
+                "Quản lý nước tốt, tránh để ruộng bị khô hạn hoặc ngập úng kéo dài."
+              ]
+            },
+            {
+              "strategy": "Sử dụng giống kháng",
+              "details": "Sử dụng các giống có khả năng chống chịu tốt với bệnh đốm nâu như Tetep, Tadukan."
+            },
+            {
+              "strategy": "Xử lý hạt giống",
+              "points": [
+                "Sử dụng hạt giống sạch bệnh, không có vết đốm đen.",
+                "Xử lý hạt bằng nước nóng (53-54°C trong 10-12 phút) hoặc các loại thuốc trừ nấm chuyên dụng (Iprodione, Propiconazole)."
+              ]
+            },
+            {
+              "strategy": "Kiểm soát hóa học",
+              "recommendation": "Chỉ phun thuốc khi cần thiết, khi bệnh có nguy cơ lan rộng. Các hoạt chất hiệu quả bao gồm Propiconazole, Azoxystrobin, Carbendazim + Mancozeb."
+            },
+            {
+              "strategy": "Kiểm soát sinh học",
+              "recommendation": "Sử dụng các vi sinh vật đối kháng có thể giúp giảm áp lực bệnh một cách bền vững.",
+              "agents": [
+                {
+                  "name": "Nấm Trichoderma",
+                  "examples": "Các chủng *Trichoderma viride*, *T. harzianum* có thể làm giảm tỷ lệ bệnh tới 70% khi được sử dụng đúng cách (trộn vào đất)."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "narrow_brown_spot": {
+      "name": "Bệnh Đốm Nâu Hẹp",
+      "scientific_name": "Sphaerulina oryzina",
+      "anamorph": "Cercospora janseana",
+      "type": "Nấm",
+      "aliases": ["đốm lá cercospora", "đốm sọc nâu"],
+      "summary": "Do nấm Sphaerulina oryzina gây ra, thường xuất hiện ở giai đoạn cuối của cây lúa. Bệnh thường không gây hại kinh tế đáng kể trừ khi bị nhiễm rất nặng, nhưng có thể ảnh hưởng đến chất lượng hạt.",
+      "intents": {
+        "request_symptoms": {
+          "title": "Triệu chứng & Dấu hiệu nhận biết",
+          "by_location": [
+            {
+              "location": "Trên lá",
+              "description": "Vết bệnh có dạng các sọc thẳng, ngắn, màu nâu, phát triển song song với gân lá. Vết bệnh thường có chiều dài 2-10 mm và rộng 1-1.5 mm."
+            }
+          ]
+        },
+        "request_disease_cycle": {
+          "title": "Chu trình Bệnh & Điều kiện Phát triển",
+          "favorable_conditions": {
+            "weather": {
+              "title": "Yếu tố thời tiết",
+              "temperature_c": "Nhiệt độ tối ưu 25-28°C."
+            },
+            "cultivation": {
+              "title": "Yếu tố canh tác",
+              "soil_condition": "Bệnh thường xảy ra ở những ruộng thiếu Kali."
+            }
+          }
+        },
+        "request_management_strategy": {
+          "title": "Chiến lược Quản lý Tổng hợp (IPM)",
+          "sections": [
+            {
+              "strategy": "Biện pháp canh tác",
+              "points": [
+                "Bón phân cân đối, đảm bảo cung cấp đủ Kali cho cây.",
+                "Sử dụng giống kháng nếu có.",
+                "Vệ sinh đồng ruộng."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "kernel_smut_black": {
+      "name": "Bệnh Than đen hạt lúa",
+      "scientific_name": "Tilletia horrida (Cooke) Takahashi",
+      "type": "Nấm",
+      "aliases": ["than đen", "benh than den", "kernel smut"],
+      "summary": "Từng là bệnh thứ yếu, nay đã trở thành mối đe dọa kinh tế nghiêm trọng do việc sử dụng rộng rãi các giống lúa lai và bón thừa đạm. Bệnh do nấm Tilletia horrida gây ra, làm biến đổi nội nhũ hạt thành một khối bào tử đen, ảnh hưởng trực tiếp đến chất lượng gạo.",
+      "intents": {
+        "request_symptoms": {
+          "title": "Triệu chứng & Dấu hiệu nhận biết",
+          "by_location": [
+            {
+              "location": "Trên hạt",
+              "description": "Khi lúa chín, một hoặc một vài hạt trên bông bị biến đổi. Toàn bộ hoặc một phần nội nhũ bên trong hạt được thay thế bằng một khối bột màu đen tuyền, giống như bồ hóng. Ban đầu, khối bào tử này có thể được bao bọc bởi lớp vỏ trấu, nhưng khi chín, vỏ trấu sẽ nứt ra, để lộ khối bột đen bên trong. Hạt bị bệnh thường có kích thước lớn hơn một chút so với hạt khỏe mạnh."
+            }
+          ]
+        },
+        "request_disease_cycle": {
+          "title": "Chu trình Bệnh & Điều kiện Phát triển",
+          "source": "Nguồn bệnh là các bào tử (teliospores) tồn tại trong đất và trên hạt giống từ vụ trước.",
+          "infection_process": "Khi ruộng ngập nước, bào tử nổi lên, nảy mầm và tạo ra các 'bào tử thứ cấp' (secondary sporidia). Các bào tử này phát tán trong không khí và lây nhiễm vào hoa lúa trong giai đoạn trổ bông, khi hoa đang mở.",
+          "favorable_conditions": {
+            "weather": {
+              "title": "Yếu tố thời tiết",
+              "temperature_c": "Nhiệt độ tối ưu 25-30°C.",
+              "humidity_percent": "Độ ẩm tương đối cao, trên 90%.",
+              "other": "Có mưa thường xuyên trong giai đoạn lúa trổ là điều kiện quyết định."
+            },
+            "cultivation": {
+              "title": "Yếu tố canh tác",
+              "fertilizer": "Bón thừa đạm là yếu tố quan trọng nhất làm tăng tỷ lệ bệnh.",
+              "variety": "Các giống lúa lai, lúa hạt dài thường mẫn cảm hơn do có thời gian trổ hoa dài và hoa mở lớn hơn.",
+              "sowing_time": "Gieo sạ muộn làm cho giai đoạn trổ bông trùng với thời điểm mưa nhiều."
+            }
+          }
+        },
+        "request_management_strategy": {
+          "title": "Chiến lược Quản lý Tổng hợp (IPM)",
+          "sections": [
+            {
+              "strategy": "Sử dụng giống kháng",
+              "details": "Là biện pháp hiệu quả nhất. Các giống như 'Wells' được ghi nhận là ít mẫn cảm. Việc sàng lọc và phát triển giống kháng đang là ưu tiên hàng đầu."
+            },
+            {
+              "strategy": "Biện pháp canh tác",
+              "points": [
+                "Quản lý phân đạm: Cực kỳ quan trọng. Tránh bón đạm liều cao, đặc biệt là các đợt bón thúc muộn. Giữ tổng lượng đạm dưới 179 kg/ha.",
+                "Thời điểm gieo trồng: Bố trí thời vụ gieo trồng sớm để giai đoạn lúa trổ né được các đợt mưa lớn.",
+                "Sử dụng hạt giống sạch bệnh."
+              ]
+            },
+            {
+              "strategy": "Kiểm soát hóa học",
+              "recommendation": "Hiệu quả nhất khi phun phòng ngừa ở giai đoạn giữa đến cuối làm đòng, trước khi lúa trổ.",
+              "active_ingredients": [
+                {
+                  "name": "Propiconazole",
+                  "type": "Thuốc nội hấp, lưu dẫn.",
+                  "effectiveness": "Hoạt chất được ghi nhận có hiệu quả kiểm soát tốt bệnh than đen."
+                },
+                {
+                  "name": "Hỗn hợp (Azoxystrobin + Propiconazole, Trifloxystrobin + Propiconazole)",
+                  "type": "Kết hợp hai hoạt chất giúp tăng hiệu quả và quản lý tính kháng.",
+                  "effectiveness": "Cung cấp khả năng kiểm soát phổ rộng và bảo vệ cây tốt hơn."
+                }
+              ]
+            }
+          ]
+        },
+        "request_differential_diagnosis": {
+          "title": "Chẩn đoán phân biệt",
+          "comparisons": [
+            {
+              "disease_name": "Bệnh Than vàng/Than giả",
+              "distinguishing_feature": "Bệnh than đen tạo ra khối bột đen bên trong hạt, làm vỡ vỏ trấu. Bệnh than giả tạo ra các khối u nấm hình cầu, màu vàng cam sau đó chuyển sang xanh đen, bao bọc bên ngoài hạt."
+            }
+          ]
+        }
+      }
+    },
+    "kernel_smut_false": {
+      "name": "Bệnh Than vàng",
+      "scientific_name": "Ustilaginoidea virens (Cooke) Takahashi",
+      "type": "Nấm",
+      "aliases": ["than vàng", "than giả", "benh than vang", "false smut", "bông cựa gà"],
+      "summary": "Do nấm Ustilaginoidea virens gây ra, cũng là một bệnh ngày càng trở nên phổ biến. Bệnh làm biến đổi hạt lúa thành khối u nấm, không chỉ làm giảm năng suất mà còn có thể chứa độc tố mycotoxin nguy hiểm.",
+      "intents": {
+        "request_symptoms": {
+          "title": "Triệu chứng & Dấu hiệu nhận biết",
+          "by_location": [
+            {
+              "location": "Trên hạt",
+              "description": "Bệnh biến đổi từng hạt lúa riêng lẻ thành một khối u nấm hình cầu. Ban đầu, khối u có màu vàng cam, bề mặt mịn và được bao bọc bởi một màng mỏng. Khi khối u lớn lên, nó sẽ nứt ra, chuyển sang màu xanh đen, có kết cấu mịn như nhung. Khối u này bao bọc bên ngoài hạt lúa."
+            }
+          ]
+        },
+        "request_damage_assessment": {
+          "title": "Tác hại & Nguy cơ",
+          "yield_loss": "Làm giảm năng suất do một số hạt trên bông không thể phát triển thành gạo.",
+          "quality_issue": "Làm giảm chất lượng gạo khi thu hoạch và xay xát.",
+          "mycotoxin_risk": "Nguy cơ lớn nhất là khối u nấm có thể chứa các độc tố mycotoxin (ustiloxins), gây nguy hiểm cho sức khỏe con người và vật nuôi nếu ăn phải."
+        },
+        "request_management_strategy": {
+          "title": "Chiến lược Quản lý Tổng hợp (IPM)",
+          "overview": "Các biện pháp quản lý tương tự như bệnh than đen, tập trung vào phòng ngừa.",
+          "sections": [
+            {
+              "strategy": "Biện pháp canh tác",
+              "points": [
+                "Sử dụng giống kháng.",
+                "Tránh bón thừa đạm.",
+                "Vệ sinh đồng ruộng, cày vùi kỹ tàn dư để tiêu diệt hạch nấm."
+              ]
+            },
+            {
+              "strategy": "Kiểm soát hóa học",
+              "recommendation": "Phun thuốc trừ nấm có hoạt chất như Propiconazole ở giai đoạn làm đòng để phòng bệnh."
+            }
+          ]
+        }
+      }
+    }
+  }
+}
