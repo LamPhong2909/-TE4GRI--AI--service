@@ -221,6 +221,8 @@ class CVNLPBridge:
         # Vector hóa truy vấn
         query_vec = self.vectorizer.transform([feature_text])
         
+
+        # Nếu không có embedding, sử dụng TF-IDF
         # Tính toán độ tương đồng cosine
         similarities = cosine_similarity(query_vec, self.tfidf_matrix)
         best_match_idx = np.argmax(similarities)
